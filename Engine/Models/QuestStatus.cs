@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Engine.Models
+{
+    // Mission status, fortæller om den er lavet eller ikke lavet.
+    public class QuestStatus : BaseNotificationClass
+    {
+        private bool _isCompleted;
+
+        public Quest PlayerQuest { get; }
+        public bool IsCompleted
+        {
+            get { return _isCompleted; }
+            set
+            {
+                _isCompleted = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public QuestStatus(Quest quest)
+        {
+            PlayerQuest = quest;
+            IsCompleted = false;
+        }
+    }
+}
